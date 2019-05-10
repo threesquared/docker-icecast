@@ -1,4 +1,6 @@
-FROM alpine
+FROM alpine:3.9
+
+LABEL maintainer="Ben Speakman <ben@3sq.re>"
 
 ARG UID=1000
 ARG GID=1000
@@ -17,4 +19,4 @@ EXPOSE 8000
 
 USER $UID:$GID
 
-CMD ["icecast", "-c", "/icecast/icecast.xml"]
+ENTRYPOINT ["icecast", "-c", "/icecast/icecast.xml"]
